@@ -1,0 +1,45 @@
+.shipping{
+    max-width: 400px;
+    width: 90%;
+    margin: 30px auto 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.shipping .input-area{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.shipping .input-area label{
+    font-size: 14px;
+    color: #7D8184;
+}
+.shipping .input-area label span{
+    color: red;
+}
+
+.shipping .input-area input{
+    width: 100%;
+    padding: 8px 10px;
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 5px;
+}
+
+.shipping button{
+    height: 40px;
+    color: white;
+    background-color: #DB4444;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 18px;
+}

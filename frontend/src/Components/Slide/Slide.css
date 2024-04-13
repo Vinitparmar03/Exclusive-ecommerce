@@ -1,0 +1,90 @@
+.carousel-container {
+  width: 75%;
+  max-width: 800px;
+  height: 280px;
+  margin: 5px auto;
+}
+
+img {
+  height: 300px;
+}
+
+.custom-prev-button {
+  background-color: #292626be;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  height: 80px;
+  top: 50%;
+  transform: translateY(-75%);
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.custom-next-button {
+  background-color: #292626be;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  height: 80px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-75%);
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.carousel-container:hover .custom-prev-button,
+.carousel-container:hover .custom-next-button {
+  opacity: 1;
+}
+
+@media (max-width: 1180px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+@media (max-width: 1024px) {
+  .carousel-container {
+    width: 95%;
+    height: 200px;
+  }
+  img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 800px) {
+  .carousel-container {
+    width: 100%;
+    height: 300px;
+  }
+  img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+  .carousel-container {
+    width: 100%;
+    height: 250px;
+  }
+  img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 500px) {
+  .carousel-container {
+    width: 100%;
+    height: 200px;
+  }
+  img {
+    height: 200px;
+  }
+}

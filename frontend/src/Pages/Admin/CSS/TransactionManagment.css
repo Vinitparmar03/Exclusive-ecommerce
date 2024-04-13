@@ -1,0 +1,53 @@
+.shipping-info-card h1 {
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.shipping-info-card h5 {
+  margin: 2rem 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.shipping-info-card p {
+  margin: 0.5rem;
+}
+
+.shipping-info-card .shipping-btn {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: none;
+  background-color: rgb(5, 107, 224);
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.shipping-info-card .shipping-btn:hover {
+  opacity: 0.8;
+}
+
+.transaction-product-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.transaction-product-card img {
+  height: 64px !important;
+  width: 64px !important;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.transaction-product-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.transaction-product-card span {
+  margin-left: auto !important;
+  position: static !important;
+  font-size: 13px;
+  font-weight: 600;
+}

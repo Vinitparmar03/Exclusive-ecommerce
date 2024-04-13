@@ -1,0 +1,21 @@
+.graph-container {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem 2rem 0;
+  width: 100%;
+}
+
+.graph-container .revenue-chart {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem 3rem;
+  width: 80%;
+}
+
+.graph-container .revenue-chart h2 {
+  letter-spacing: 3px;
+  font-weight: 300;
+  text-decoration: uppercase;
+  margin: 1rem 0 2rem 0.25rem;
+  text-align: center;
+}

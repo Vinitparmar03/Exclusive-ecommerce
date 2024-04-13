@@ -1,0 +1,43 @@
+.hero {
+  display: flex;
+  gap: 40px;
+  height: 300px;
+  max-width: 1600px;
+  width: 80%;
+  margin: auto;
+}
+
+.hero .hero-left {
+  width: 250px;
+  height: 100%;
+}
+
+.hero .verticle {
+  border-left: 1px solid #7d8184;
+  width: 2px;
+  height: 100%;
+}
+
+.hero .hero-right {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    width: 90%;
+    height: 260px;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero .hero-left {
+    display: none;
+    width: 80%;
+  }
+
+  .hero .verticle {
+    display: none;
+  }
+}

@@ -1,0 +1,145 @@
+.table {
+  border-collapse: collapse;
+  width: 70%;
+  max-width: 1600px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  font-weight: bold;
+  color: #0000009e;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 2rem 1rem;
+}
+
+tbody tr {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+}
+
+tbody td {
+  padding: 1rem;
+}
+
+tbody img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+tbody a {
+  text-decoration: none;
+  background-color: rgba(44, 104, 255, 0.455);
+  color: rgba(44, 104, 255);
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+}
+
+tbody button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #db4444;
+  font-size: 24px;
+}
+
+tbody button:hover {
+  opacity: 0.6;
+}
+
+tbody button:first-child {
+  border-left: none;
+}
+tbody button:last-child {
+  border-right: none;
+}
+
+.table-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+}
+
+.table-pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #db4444;
+  color: white;
+}
+
+.table-pagination button:disabled {
+  background-color: rgba(0, 115, 255, 0.1);
+  cursor: not-allowed;
+}
+
+@media (max-width: 800px) {
+  .table {
+    width: 90%;
+  }
+  tbody td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) {
+  .table {
+    width: 95%;
+  }
+  th {
+    font-size: 14px;
+    padding: 2px;
+  }
+  tbody td {
+    padding: 4px;
+    font-size: 12px;
+  }
+  tbody img {
+    height: 40px;
+    width: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .table {
+    width: 98%;
+  }
+  th {
+    font-size: 12px;
+    padding: 2px;
+  }
+  tbody td {
+    padding: 4px;
+    font-size: 10px;
+  }
+  tbody img {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (max-width: 400px) {
+  .table {
+    width: 100%;
+  }
+  th {
+    font-size: 10px;
+    padding: 1px;
+  }
+  tbody td {
+    padding: 2px;
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,73 @@
+.website-data {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 60%;
+  margin: 80px auto 0;
+  gap: 20px;
+  max-width: 1600px;
+}
+
+.website-data .main-dets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #b3b3b3;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+  max-width: 200px;
+}
+
+.website-data .main-dets p {
+  text-align: center;
+  width: 100%;
+}
+
+.website-data .main-dets:hover {
+  background-color: #db4444;
+}
+
+.website-data .main-dets .circle-one {
+  height: 55px;
+  width: 55px;
+  background-color: #c1c0c1;
+  padding: 7px;
+  border-radius: 50%;
+}
+
+.website-data .main-dets .circle-two {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  line-height: 55px;
+}
+
+.website-data .main-dets .circle-two svg {
+  color: white;
+  font-size: 25px;
+}
+
+@media (max-width: 1200px) {
+  .website-data {
+    width: 80%;
+  }
+}
+@media (max-width: 850px) {
+  .website-data {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+  }
+}
+@media (max-width: 500px) {
+  .website-data {
+    width: 90%;
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+}

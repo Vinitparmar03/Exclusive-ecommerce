@@ -1,0 +1,79 @@
+.discount-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.discount-product h2 {
+  color: #db4343;
+  font-size: 30px;
+  font-weight: 600;
+}
+.discount-product h1 {
+  color: #171717;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.discount-product hr {
+  width: 200px;
+  height: 6px;
+  border-radius: 10px;
+  background: #252525;
+  margin-bottom: 20px;
+}
+
+.discount-product .products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.discount-product .btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #e44747;
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discount-product .btn:hover {
+  background: #db4343;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  .discount-product .products {
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .discount-product h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .discount-product {
+    width: 90%;
+  }
+}

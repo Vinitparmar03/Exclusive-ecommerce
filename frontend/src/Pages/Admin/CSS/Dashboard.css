@@ -1,0 +1,167 @@
+.admin-container {
+  display: flex;
+  gap: 20px;
+  background-color: #f7f7f7;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.dashboard {
+  overflow-y: auto;
+}
+
+.dashboard .widget-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 32px;
+  padding: 32px 32px 32px 32px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard .transaction-container {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem 2rem 0;
+  height: 30rem;
+}
+
+.dashboard .transaction-container div {
+  background-color: white;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.132);
+  border-radius: 10px;
+}
+.dashboard .transaction-container .gender-chart {
+  width: 100%;
+  max-width: 20rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.dashboard .transaction-container .gender-chart h2 {
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+  letter-spacing: 3px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.dashboard .transaction-container .gender-chart p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.634);
+}
+
+.dashboard .transaction-container .transaction-box {
+  width: 100%;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.dashboard .transaction-container .transaction-box .table {
+  width: 100%;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.dashboard .transaction-container .transaction-box h2 {
+  margin: 1.5rem 0 0 0;
+  letter-spacing: 3px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* center the table */
+
+.product table,
+.transaction table,
+.customer table {
+  width: 100%;
+}
+
+@media screen and (width<= 1300px) {
+  .admin-container {
+    overflow: auto;
+  }
+
+  .dashboard {
+    .widget-container,
+    .graph-container,
+    .transaction-container {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .graph-container {
+      padding: 2rem;
+    }
+    .transaction-container {
+      padding: 2rem;
+      height: unset;
+    }
+  }
+
+  .product-management {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .admin-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard-app-container {
+    padding: 32px !important;
+    margin-top: 40px;
+  }
+  .dashboard .transaction-container .gender-chart {
+    padding: 5px;
+  }
+  .admin-container tbody td button {
+    font-size: 10px;
+  }
+  .admin-container tbody td {
+    font-size: 10px;
+  }
+  .admin-container tbody td a {
+    font-size: 8px;
+    padding: 0.15rem 0.2rem;
+  }
+  .dashboard-app-container section .coupon-form {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 90%;
+  }
+  .dashboard-app-container .stopwatch .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .dashboard-app-container .stopwatch .btn button {
+    padding: 12px 24px;
+    margin: 0;
+  }
+  .dashboard-app-container .stopwatch {
+    align-items: center;
+  }
+
+  .dashboard-app-container .tosscoin {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  /* center the table */
+  .customer table td {
+    width: 100%;
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,23 @@
+.contact {
+  display: flex;
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .contact {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact {
+    flex-wrap: wrap-reverse;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

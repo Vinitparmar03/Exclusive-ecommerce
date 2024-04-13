@@ -1,0 +1,23 @@
+.checkout-container {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
+.checkout-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 32px;
+}
+
+.checkout-container form button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 16px;
+  background-color: #db4444;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+}

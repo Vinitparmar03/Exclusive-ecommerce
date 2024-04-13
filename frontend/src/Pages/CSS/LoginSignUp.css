@@ -1,0 +1,110 @@
+.login-signup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  max-width: 1600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.login-signup .login-signup-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-signup .login-signup-left img {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 800px;
+}
+
+.login-signup-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-signup-right h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.login-signup-right .loginsignup-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 250px;
+}
+
+.login-signup-right .loginsignup-fields input {
+  border: none;
+  border-bottom: 1px solid #7d8184;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.login-signup-right .loginsignup-fields input:focus {
+  outline: none;
+}
+
+.login-signup-right .loginsignup-fields label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.login-signup-right .loginsignup-fields select {
+  width: 100%;
+  height: 35px;
+}
+.login-signup-right .loginsignup-fields select:focus {
+  outline: none;
+}
+
+.login-signup-right button {
+  border: none;
+  margin-top: 10px;
+  background-color: #db4444;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginsignup-login {
+  margin-top: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.loginsignup-login span {
+  color: #ff4141;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loginsignup-login span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .login-signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+  }
+
+  .login-signup .login-signup-left {
+    display: none;
+  }
+
+  .login-signup .loginsignup-login {
+    font-size: 14px;
+  }
+}

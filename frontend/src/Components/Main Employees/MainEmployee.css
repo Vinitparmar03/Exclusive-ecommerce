@@ -1,0 +1,44 @@
+.main-employees {
+  display: flex;
+  width: 75%;
+  gap: 15px;
+  margin: 70px auto 0;
+  height: 415px;
+  max-width: 1600px;
+}
+
+.main-employees .employee-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.main-employees .employee-card img {
+  object-fit: cover;
+}
+
+.carousel .control-dots .dot {
+  background-color: #999;
+}
+
+.carousel .control-dots .dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+}
+
+.carousel .control-dots .dot.selected {
+  background-color: #db4444;
+}
+
+@media (max-width: 1200px) {
+  .main-employees {
+    width: 80%;
+  }
+}
+@media (max-width: 1024px) {
+  .main-employees {
+    width: 90%;
+  }
+}

@@ -1,0 +1,17 @@
+.cart {
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  margin-top: 0px;
+}
+
+.cart h1 {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+@media (max-width: 1024px) {
+  .cart {
+    width: 90%;
+  }
+}
