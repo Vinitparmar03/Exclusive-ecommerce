@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { myCache } from "../index.js";
+import { myCache } from "../../index.js";
 import { Product } from "../models/product.js";
 
 export const connectDB = (uri) => {

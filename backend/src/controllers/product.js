@@ -1,4 +1,4 @@
-import { myCache } from "../index.js";
+import { myCache } from "../../index.js";
 import { Product } from "../models/product.js";
 import { invalidatesCache } from "../Utils/features.js";
 import { rm } from "fs";

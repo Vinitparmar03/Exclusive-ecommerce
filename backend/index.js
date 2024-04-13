@@ -2,18 +2,18 @@ import cors from "cors";
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
-import { errorMiddleware } from "./middlewares/error.js";
+import { errorMiddleware } from "./src/middlewares/error.js";
 import NodeCache from "node-cache";
 import Stripe from "stripe";
-import { connectDB } from "./Utils/features.js";
+import { connectDB } from "./src/Utils/features.js";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
 
-import userRoute from "./routes/user.js";
-import productRoute from "./routes/product.js";
-import orderRoute from "./routes/order.js";
-import paymentRoute from "./routes/payment.js";
-import dashboardRoute from "./routes/stats.js";
+import userRoute from "./src/routes/user.js";
+import productRoute from "./src/routes/product.js";
+import orderRoute from "./src/routes/order.js";
+import paymentRoute from "./src/routes/payment.js";
+import dashboardRoute from "./src/routes/stats.js";
 
 const port = process.env.PORT || 5000;
 
