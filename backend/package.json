@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./index.js"
+
+
+    "build": "node ./index.js" 
+>>>>>>> 8cd51934ad379deb1bc645e52e9f4105f4f05745
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
