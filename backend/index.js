@@ -5,7 +5,7 @@ import session from "express-session";
 import { errorMiddleware } from "./src/middlewares/error.js";
 import NodeCache from "node-cache";
 import Stripe from "stripe";
-import { connectDB } from "./src/Utils/features.js";
+import { connectDB } from "./src/utils/features.js";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
 

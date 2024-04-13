@@ -1,6 +1,6 @@
 import { myCache } from "../../index.js";
 import { Product } from "../models/product.js";
-import { invalidatesCache } from "../Utils/features.js";
+import { invalidatesCache } from "../utils/features.js";
 import { rm } from "fs";
 import { faker } from "@faker-js/faker";
 import ErrorHandler from "../utils/utility-class.js";

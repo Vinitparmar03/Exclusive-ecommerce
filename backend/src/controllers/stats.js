@@ -2,7 +2,7 @@ import { myCache } from "../../index.js";
 import { Product } from "../models/product.js";
 import { Order } from "../models/order.js";
 import { User } from "../models/user.js";
-import { calculatePercentage, getInventories } from "../Utils/features.js";
+import { calculatePercentage, getInventories } from "../utils/features.js";
 
 export const getDashboardStats = async (req, res, next) => {
   let stats = {};

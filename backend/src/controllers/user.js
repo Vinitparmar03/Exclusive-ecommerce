@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import { User } from "../models/user.js";
 import ErrorHandler from "../utils/utility-class.js";
-import { invalidatesCache } from "../Utils/features.js";
 const saltRounds = 10;
 export const registerUser = async (req, res, next) => {
   const { name, email, password, gender, dob } = req.body;

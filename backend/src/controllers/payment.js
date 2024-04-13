@@ -1,5 +1,5 @@
 import { stripe } from "../../index.js";
-import { Coupon } from "../Models/coupon.js";
+import { Coupon } from "../models/coupon.js";
 import ErrorHandler from "../utils/utility-class.js";
 
 export const createPaymentIntent = async (req, res, next) => {
