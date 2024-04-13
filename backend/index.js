@@ -8,6 +8,11 @@ import Stripe from "stripe";
 import { connectDB } from "./src/utils/features.js";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
+import connectRedis from "connect-redis";
+import redis from "redis";
+
+const RedisStore = connectRedis(session);
+const redisClient = redis.createClient();
 
 import userRoute from "./src/routes/user.js";
 import productRoute from "./src/routes/product.js";
@@ -35,10 +40,10 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: "vinit bhai",
+    secret: "vinit bhai hai vinit bhai ukhad le",
     resave: false,
     saveUninitialized: true,
-    store,
+    store: new RedisStore({ client: redisClient }),
     cookie: {
       secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,

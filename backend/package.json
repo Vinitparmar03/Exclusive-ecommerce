@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./index.js"
+    "dev": "nodemon ./index.js"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "bcrypt": "^5.1.1",
     "connect-mongodb-session": "^5.0.0",
+    "connect-redis": "^7.1.1",
     "const": "^1.0.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -23,6 +24,7 @@
     "multer": "^1.4.5-lts.1",
     "node-cache": "^5.1.2",
     "path": "^0.12.7",
+    "redis": "^4.6.13",
     "stripe": "^14.24.0",
     "uuid": "^9.0.1",
     "validator": "^13.11.0"
