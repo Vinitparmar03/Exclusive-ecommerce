@@ -1,8 +1,7 @@
 {
-    "rewrites": [
+        {"builds": ["src": "./index.js", "use": "@vercel/node"]}
         {
             "source" : "/(.*)", 
             "destination" : "/"
         }
-    ]
 }
