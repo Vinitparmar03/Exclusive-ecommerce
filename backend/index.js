@@ -15,7 +15,7 @@ import orderRoute from "./src/routes/order.js";
 import paymentRoute from "./src/routes/payment.js";
 import dashboardRoute from "./src/routes/stats.js";
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 5000;
 
 const store = new session.MemoryStore();
 
