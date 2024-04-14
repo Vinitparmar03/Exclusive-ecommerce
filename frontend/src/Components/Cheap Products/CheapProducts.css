@@ -75,5 +75,6 @@
 @media (max-width: 600px) {
   .discount-product {
     width: 90%;
+    margin-top: 25px;
   }
 }
