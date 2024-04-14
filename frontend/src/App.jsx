@@ -34,6 +34,39 @@ import Checkout from "./Pages/Checkout";
 
 function App() {
   const { user, loading } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchSessionData = async () => {
+      try {
+        let userDataFromCookie = Cookies.get("userData");
+
+        if (userDataFromCookie) {
+          dispatch(userExist(userDataFromCookie));
+        } else {
+          const response = await fetch(
+            `${import.meta.env.VITE_SERVER}/api/v1/user/session`,
+            {
+              method: "GET",
+              credentials: "include",
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          const responseData = await response.json();
+          dispatch(userExist(responseData.userData));
+          console.log(import.meta.env.VITE_SERVER);
+        }
+      } catch (error) {
+        console.error("Error fetching session data:", error);
+      }
+    };
+
+    fetchSessionData();
+  }, []);
 
   return loading ? (
     <h1>loading... </h1>

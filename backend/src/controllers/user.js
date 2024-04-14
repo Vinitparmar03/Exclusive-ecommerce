@@ -141,6 +141,18 @@ export const saveDetails = async (req, res) => {
   }
 };
 
+export const getSession = async (req, res) => {
+  if (req.session.authenticated && req.session.data) {
+    const user = req.session.data;
+    res.cookie("userData", JSON.stringify(user), {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+    res.status(200).json({ userData: req.session.data });
+  } else {
+    res.status(200).json({ userData: null });
+  }
+};
+
 export const getUser = async (req, res, next) => {
   try {
     const id = req.params.id;
