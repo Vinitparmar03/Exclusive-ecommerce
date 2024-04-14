@@ -29,6 +29,10 @@ const Product = () => {
     toast.success("Added to cart");
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       {isLoading || relatedProductsLoading ? (
