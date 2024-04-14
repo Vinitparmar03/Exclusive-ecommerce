@@ -77,6 +77,7 @@ export const newProduct = async (req, res, next) => {
   try {
     const { name, rating, price, oldPrice, description, stock, category } =
       req.body;
+      console.log(name)
 
     const photo = req.file;
 
