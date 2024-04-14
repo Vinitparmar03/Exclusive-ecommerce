@@ -77,11 +77,8 @@ export const newProduct = async (req, res, next) => {
   try {
     const { name, rating, price, oldPrice, description, stock, category } =
       req.body;
-<<<<<<< HEAD
-      console.log(name)
-=======
-      console.log(name, rating, price, oldPrice, description, stock, category)
->>>>>>> 7926ece79ae1ec72f2d5ec418afd8d7f92460609
+
+    console.log(name);
 
     const photo = req.file;
     console.log(photo);
@@ -102,7 +99,7 @@ export const newProduct = async (req, res, next) => {
       throw new ErrorHandler("Please Enter All Fields", 400);
     }
 
-    console.log("pass 1")
+    console.log("pass 1");
 
     await Product.create({
       name,
@@ -115,7 +112,7 @@ export const newProduct = async (req, res, next) => {
       photo: photo?.path,
     });
 
-    console.log("pass 2")
+    console.log("pass 2");
 
     invalidatesCache({ product: true, admin: true });
 
