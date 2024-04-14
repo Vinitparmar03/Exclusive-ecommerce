@@ -3,6 +3,7 @@
   flex-direction: column;
   min-width: 150px;
   max-width: 250px;
+  min-height: 400px;
   border: 1px solid #7d81849a;
   border-top: none;
   border-bottom: none;
@@ -105,11 +106,17 @@
   .product-card .image .add-to-cart {
     display: none;
   }
+  .product-card {
+    width: 220px;
+  }
 }
 
 @media (max-width: 650px) {
   .product-card {
-    min-width: 130px;
+    min-height: 230px;
+  }
+  .product-card {
+    width: 180px;
   }
   .product-card .image {
     height: 100px;
@@ -134,5 +141,17 @@
 
   .product-card .image .add-to-cart {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-card {
+    max-width: 150px;
+    min-width: 120px;
+  }
+}
+@media (max-width: 350px) {
+  .product-card {
+    width: 130px;
   }
 }

@@ -19,3 +19,14 @@
   margin: 1rem 0 2rem 0.25rem;
   text-align: center;
 }
+
+@media (max-width: 650px) {
+  .graph-container .revenue-chart {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .graph-container .revenue-chart h2{
+    font-size: 18px;
+  }
+}
