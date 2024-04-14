@@ -113,7 +113,7 @@ const Products = () => {
     if (data)
       setRows(
         data.products.map((i) => ({
-          photo: <img src={`http://localhost:5000/${i.photo}`} />,
+          photo: <img src={`${import.meta.env.VITE_SERVER}/${i.photo}`} />,
           name: i.name,
           price: i.price,
           stock: i.stock,

@@ -57,7 +57,7 @@ const NewProduct = () => {
     const res = await newproduct({ id: user?.id, formData });
 
     if (res) {
-      toast.success(res.data.message);
+      toast.success("Product Added Successfully");
       navigate("/admin/products");
     }
   };
