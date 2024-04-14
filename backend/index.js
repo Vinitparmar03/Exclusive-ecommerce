@@ -8,11 +8,7 @@ import Stripe from "stripe";
 import { connectDB } from "./src/utils/features.js";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
-import connectRedis from "connect-redis";
-import redis from "redis";
-
-const RedisStore = connectRedis(session);
-const redisClient = redis.createClient();
+import store from "./src/utils/session.js";
 
 import userRoute from "./src/routes/user.js";
 import productRoute from "./src/routes/product.js";
@@ -22,7 +18,6 @@ import dashboardRoute from "./src/routes/stats.js";
 
 const port = process.env.PORT || 5000;
 
-const store = new session.MemoryStore();
 
 const stripeKey = process.env.STRIPE_KEY;
 const MONGO_URI = `${process.env.MONGO_URI}/exclusive`;
@@ -40,10 +35,10 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: "vinit bhai hai vinit bhai ukhad le",
+    secret: "vinit bhai",
     resave: false,
     saveUninitialized: true,
-    store: new RedisStore({ client: redisClient }),
+    store,
     cookie: {
       secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,

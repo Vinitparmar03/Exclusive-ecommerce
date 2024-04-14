@@ -4,8 +4,9 @@ import MongoDBStore from "connect-mongodb-session";
 const MongoDBStoreSession = MongoDBStore(session);
 
 const store = new MongoDBStoreSession({
-  uri: "mongodb://localhost:27017/session-store", // MongoDB connection URI
-  collection: "sessions",
+  uri: process.env.MONGO_URI, 
+  databaseName: "session-store", 
+  collection: "Exclusive",
 });
 
 store.on("error", function (error) {
