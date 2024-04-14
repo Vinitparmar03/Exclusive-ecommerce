@@ -37,11 +37,9 @@ const columns = [
 const Transactions = () => {
   const { user } = useSelector((state) => state.userReducer);
 
-  console.log(user);
 
   const { isLoading, data } = useAllOrdersQuery(user?.id);
 
-  console.log(data);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {

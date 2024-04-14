@@ -76,7 +76,6 @@ const ProductManagement = () => {
       formData.set("description", descriptionUpdate.toString());
     if (ratingUpdate) formData.set("rating", ratingUpdate.toString());
 
-    console.log("user", user);
 
     const res = await updateProduct({
       formData,

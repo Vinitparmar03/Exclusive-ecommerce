@@ -11,6 +11,7 @@ import {
 import { useSelector } from "react-redux";
 import userDP from "../../assets/userDP.jpg";
 import "./CSS/Dashboard.css";
+import toast from "react-hot-toast";
 
 const columns = [
   {
@@ -48,7 +49,9 @@ const Customers = () => {
 
   const deleteHandler = async (userId) => {
     const res = await deleteUser({ userId, adminUserId: user?.id });
-    console.log(res);
+    if (res) {
+      toast.success(res.data.message);
+    }
   };
 
   useEffect(() => {

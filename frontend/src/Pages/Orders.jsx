@@ -36,10 +36,6 @@ const Orders = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  useEffect(() => {
     if (data)
       setRows(
         data.orders.map((i) => ({

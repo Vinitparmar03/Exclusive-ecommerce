@@ -40,7 +40,6 @@ function App() {
     const fetchSessionData = async () => {
       try {
         let userDataFromCookie = Cookies.get("userData");
-        console.log("userDataFromCookie", userDataFromCookie);
 
         if (userDataFromCookie) {
           const cookies = document.cookie.split("; ");
@@ -78,7 +77,6 @@ function App() {
 
           const responseData = await response.json();
           dispatch(userExist(responseData.userData));
-          console.log(import.meta.env.VITE_SERVER);
         }
       } catch (error) {
         console.error("Error fetching session data:", error);

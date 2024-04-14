@@ -61,7 +61,6 @@ const LoginSignup = () => {
     try {
       const response = await registerUser(registerUserCredentials).unwrap();
       toast.success(response.message);
-      console.log(response);
       navigate("/");
       dispatch(userExist(response.data));
       const userData = response.data;
