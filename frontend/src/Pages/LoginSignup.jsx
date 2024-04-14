@@ -46,23 +46,10 @@ const LoginSignup = () => {
       dispatch(userExist(response.data));
 
       const userData = response.data;
-      console.log(userData);
       const maxAge = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
       document.cookie = `userData=${JSON.stringify(
         userData
       )}; max-age=${maxAge}; `;
-
-      const userDataCookie = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("userData="));
-
-      if (userDataCookie) {
-        const userDataString = userDataCookie.split("=")[1];
-        const parsedUserData = JSON.parse(userDataString); // Rename the variable to avoid confusion
-        console.log(parsedUserData);
-      } else {
-        console.log("userData cookie not found.");
-      }
     } catch (err) {
       toast.error(err.data.message);
       console.error("Registration failed:", err);
@@ -77,6 +64,11 @@ const LoginSignup = () => {
       console.log(response);
       navigate("/");
       dispatch(userExist(response.data));
+      const userData = response.data;
+      const maxAge = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+      document.cookie = `userData=${JSON.stringify(
+        userData
+      )}; max-age=${maxAge}; `;
     } catch (err) {
       console.error("Registration failed:", err);
     }

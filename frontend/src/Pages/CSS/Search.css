@@ -154,8 +154,19 @@
 }
 
 @media (max-width: 600px) {
+  .product-search-page aside.nav-menu-visible {
+    display: flex;
+    position: absolute;
+    min-width: 300px;
+    max-width: 300px;
+    top: 50px;
+    left: 10px;
+    z-index: 10000;
+    background-color: white;
+  }
+
   .product-search-page {
-    padding: 1rem 2rem;
+    padding: 16px 32px;
   }
 
   .product-search-page main {

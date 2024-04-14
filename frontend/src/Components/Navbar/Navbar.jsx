@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegUser, FaSearch, FaUser } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
@@ -20,6 +20,8 @@ const Navbar = () => {
   const menuRef = useRef();
   const accountRef = useRef();
 
+ 
+
   const dropdown_toggle = (e) => {
     menuRef.current.classList.toggle("nav-menu-visible");
     e.target.classList.toggle("open");
@@ -36,6 +38,8 @@ const Navbar = () => {
         setTimeout(() => {
           navigate("/login");
         }, 100);
+        document.cookie =
+          "userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         toast.success(response.data.message);
       }
     } catch (err) {

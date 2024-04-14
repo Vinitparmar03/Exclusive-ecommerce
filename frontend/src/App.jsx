@@ -40,9 +40,29 @@ function App() {
     const fetchSessionData = async () => {
       try {
         let userDataFromCookie = Cookies.get("userData");
+        console.log("userDataFromCookie", userDataFromCookie);
 
         if (userDataFromCookie) {
-          dispatch(userExist(userDataFromCookie));
+          const cookies = document.cookie.split("; ");
+          let userDataString = null;
+
+          for (let i = 0; i < cookies.length; i++) {
+            if (cookies[i].startsWith("userData=")) {
+              userDataString = cookies[i].substring("userData=".length);
+              break;
+            }
+          }
+
+          if (userDataString) {
+            try {
+              const parsedUserData = JSON.parse(
+                decodeURIComponent(userDataString)
+              );
+              dispatch(userExist(parsedUserData));
+            } catch (error) {
+              console.error("Error parsing userData cookie:", error);
+            }
+          }
         } else {
           const response = await fetch(
             `${import.meta.env.VITE_SERVER}/api/v1/user/session`,
