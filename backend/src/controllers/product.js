@@ -4,6 +4,8 @@ import { invalidatesCache } from "../utils/features.js";
 import { rm } from "fs";
 import { faker } from "@faker-js/faker";
 import ErrorHandler from "../utils/utility-class.js";
+import axios from "axios";
+import fs from "fs";
 
 export const getLatestProducts = async (req, res, next) => {
   let products = [];
@@ -77,11 +79,7 @@ export const newProduct = async (req, res, next) => {
   try {
     const { name, rating, price, oldPrice, description, stock, category } =
       req.body;
-
-    console.log(name);
-
     const photo = req.file;
-    console.log(photo);
 
     if (!photo) {
       throw new ErrorHandler("Please Add Photo", 400);
@@ -99,9 +97,27 @@ export const newProduct = async (req, res, next) => {
       throw new ErrorHandler("Please Enter All Fields", 400);
     }
 
-    console.log("pass 1");
+    const photoBuffer = fs.readFileSync(photo.path);
+
+    const imgurResponse = await axios.post(
+      "https://api.imgur.com/3/image",
+      {
+        image: photoBuffer.toString("base64"),
+      },
+      {
+        headers: {
+          Authorization: `Client-ID {{${process.env.CLIENT_ID}}}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    const imageUrl = imgurResponse.data.data.link;
+
+    const photoDeleteHash = imgurResponse.data.data.deletehash;
 
     await Product.create({
+      photoDeleteHash,
       name,
       rating,
       price,
@@ -109,62 +125,107 @@ export const newProduct = async (req, res, next) => {
       description,
       stock,
       category: category.toLowerCase(),
-      photo: photo?.path,
+      photo: imageUrl,
     });
 
-    console.log("pass 2");
+    rm(photo.path, () => {
+      console.log("Photo Deleted from Uploads Folder");
+    });
 
     invalidatesCache({ product: true, admin: true });
 
+    // Successfully created product
     return res.status(201).json({
       success: true,
       message: "Product Created Successfully",
     });
   } catch (error) {
-    if (req.file) {
-      rm(req.file.path, () => {
-        console.log("Deleted");
-      });
-    }
+    // Handle error
     return next(error);
   }
 };
 export const updateProduct = async (req, res, next) => {
-  const { id } = req.params;
-  const { name, rating, price, oldPrice, description, stock, category } =
-    req.body;
-  const photo = req.file;
-  const product = await Product.findById(id);
+  try {
+    const { id } = req.params;
+    const { name, rating, price, oldPrice, description, stock, category } =
+      req.body;
+    const photo = req.file;
 
-  if (!product) return next(new ErrorHandler("Product Not Found", 404));
+    console.log(photo);
 
-  if (photo) {
-    rm(product.photo, () => {
-      console.log("Old Photo Deleted");
+    if (!photo) {
+      console.log("Photo data is missing");
+      throw new ErrorHandler("Photo Data is Missing", 400);
+    }
+
+    const product = await Product.findById(id);
+
+    if (!product) {
+      throw new ErrorHandler("Product Not Found", 404);
+    }
+
+    const photoBuffer = fs.readFileSync(photo.path);
+
+    // Upload image to Imgur
+    const imgurResponse = await axios.post(
+      "https://api.imgur.com/3/image",
+      {
+        image: photoBuffer.toString("base64"),
+      },
+      {
+        headers: {
+          Authorization: `Client-ID {{${process.env.CLIENT_ID}}}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    const imageUrl = imgurResponse.data.data.link;
+
+    if (!product.photoDeleteHash) {
+      throw new ErrorHandler("No Image to Delete", 400);
+    }
+
+    await axios.delete(
+      `https://api.imgur.com/3/image/${product.photoDeleteHash}`,
+      {
+        headers: {
+          Authorization: `Client-ID ${process.env.CLIENT_ID}`,
+        },
+      }
+    );
+
+    product.photoDeleteHash = imgurResponse.data.data.deletehash;
+
+    product.photo = imageUrl;
+    product.name = name || product.name;
+    product.rating = rating || product.rating;
+    product.price = price || product.price;
+    product.oldPrice = oldPrice || product.oldPrice;
+    product.description = description || product.description;
+    product.stock = stock || product.stock;
+    product.category = category ? category.toLowerCase() : product.category;
+
+    await product.save();
+
+    rm(photo.path, () => {
+      console.log("Photo Deleted from Uploads Folder");
     });
-    product.photo = photo.path;
+
+    // Invalidate cache
+    invalidatesCache({
+      product: true,
+      productId: String(product._id),
+      admin: true,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Product Updated Successfully",
+    });
+  } catch (error) {
+    return next(error);
   }
-
-  if (name) product.name = name;
-  if (price) product.price = price;
-  if (stock) product.stock = stock;
-  if (category) product.category = category;
-  if (oldPrice) product.oldPrice = oldPrice;
-  if (description) product.description = description;
-  if (rating) product.rating = rating;
-
-  await product.save();
-
-  invalidatesCache({
-    product: true,
-    productId: String(product._id),
-    admin: true,
-  });
-
-  return res.status(200).json({
-    success: true,
-    message: "Product Updated Successfully",
-  });
 };
 
 export const deleteProduct = async (req, res, next) => {
@@ -172,9 +233,18 @@ export const deleteProduct = async (req, res, next) => {
 
   if (!product) return next(new ErrorHandler("Product Not Found", 404));
 
-  rm(product.photo, () => {
-    console.log("Product Photo Deleted");
-  });
+  if (!product.photoDeleteHash) {
+    throw new ErrorHandler("No Image to Delete", 400);
+  }
+
+  await axios.delete(
+    `https://api.imgur.com/3/image/${product.photoDeleteHash}`,
+    {
+      headers: {
+        Authorization: `Client-ID ${process.env.CLIENT_ID}`,
+      },
+    }
+  );
 
   await product.deleteOne();
 

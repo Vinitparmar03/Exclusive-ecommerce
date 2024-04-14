@@ -76,7 +76,6 @@ const ProductManagement = () => {
       formData.set("description", descriptionUpdate.toString());
     if (ratingUpdate) formData.set("rating", ratingUpdate.toString());
 
-
     const res = await updateProduct({
       formData,
       userId: user?.id,
@@ -118,7 +117,7 @@ const ProductManagement = () => {
       <main className="product-management">
         <section className="product-management-details">
           <strong>ID - asfdkjasljdfjlas</strong>
-          <img src={`${import.meta.env.VITE_SERVER}/${photo}`} alt="Product" />
+          <img src={`${photo}`} alt="Product" />
           <p>{name}</p>
           {stock > 0 ? (
             <span className="green">{stock} Available</span>

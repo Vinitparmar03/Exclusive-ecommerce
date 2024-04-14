@@ -13,10 +13,7 @@ const CartItem = ({
     <div className="cart-item">
       <div className="product">
         <div className="image-warpper">
-          <img
-            src={`${import.meta.env.VITE_SERVER}/${cartItem.photo}`}
-            alt=""
-          />
+          <img src={`${cartItem.photo}`} alt="" />
           <button className="delete" onClick={() => removeHandler(productId)}>
             <ImCross />
           </button>

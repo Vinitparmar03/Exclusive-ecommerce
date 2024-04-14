@@ -45,27 +45,15 @@ const ProductDisplay = ({ data, handler }) => {
     <div className="product-display">
       <div className="product-display-left">
         <div className="product-display-img-list">
-          <img
-            src={`${import.meta.env.VITE_SERVER}/${data.product.photo}`}
-            alt=""
-          />
-          <img
-            src={`${import.meta.env.VITE_SERVER}/${data.product.photo}`}
-            alt=""
-          />
-          <img
-            src={`${import.meta.env.VITE_SERVER}/${data.product.photo}`}
-            alt=""
-          />
-          <img
-            src={`${import.meta.env.VITE_SERVER}/${data.product.photo}`}
-            alt=""
-          />
+          <img src={`${data.product.photo}`} alt="" />
+          <img src={`${data.product.photo}`} alt="" />
+          <img src={`${data.product.photo}`} alt="" />
+          <img src={`${data.product.photo}`} alt="" />
         </div>
         <div className="product-display-img">
           <img
             className="product-display-main-img"
-            src={`${import.meta.env.VITE_SERVER}/${data.product.photo}`}
+            src={`${data.product.photo}`}
             alt=""
           />
         </div>

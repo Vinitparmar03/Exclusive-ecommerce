@@ -16,7 +16,7 @@ const ProductCard = ({
   return (
     <div className="product-card">
       <div className="image">
-        <img src={`${import.meta.env.VITE_SERVER}/${photo}`} alt="" />
+        <img src={`${photo}`} alt="" />
         <div
           className="add-to-cart"
           onClick={() =>

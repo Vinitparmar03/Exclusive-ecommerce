@@ -35,6 +35,9 @@ const schema = new mongoose.Schema(
       required: [true, "Please enter Category"],
       trim: true,
     },
+    photoDeleteHash: {
+      type: String,
+    },
   },
   {
     timestamps: true,
