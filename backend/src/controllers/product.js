@@ -98,7 +98,7 @@ export const newProduct = async (req, res, next) => {
       throw new ErrorHandler("Please Enter All Fields", 400);
     }
 
-    console("pass 1")
+    console.log("pass 1")
 
     await Product.create({
       name,
