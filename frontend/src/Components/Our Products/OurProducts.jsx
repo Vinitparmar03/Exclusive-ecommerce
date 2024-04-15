@@ -23,11 +23,11 @@ const OurProducts = () => {
     <div className="our-products">
       <h1>Explore Our Products</h1>
       <hr />
-      <div className="products">
-        {isLoading ? (
-          <Skeleton length={6} />
-        ) : (
-          data?.products.map((i) => (
+      {isLoading ? (
+        <Skeleton length={6} width="100%" />
+      ) : (
+        <div className="products">
+          {data.products.map((i) => (
             <ProductCard
               key={i._id}
               productId={i._id}
@@ -39,9 +39,9 @@ const OurProducts = () => {
               oldPrice={i.oldPrice}
               rating={i.rating}
             />
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
 
       <Link to="/search" className="btn">
         View All Products
