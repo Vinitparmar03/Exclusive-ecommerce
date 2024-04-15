@@ -1,7 +1,7 @@
 .graph-container {
   display: flex;
   gap: 2rem;
-  padding: 0 2rem 2rem 0;
+  padding: 0 28px 28px 0;
   width: 100%;
 }
 
@@ -26,7 +26,7 @@
     padding: 20px 20px 20px 20px;
   }
 
-  .graph-container .revenue-chart h2{
+  .graph-container .revenue-chart h2 {
     font-size: 18px;
   }
 }
