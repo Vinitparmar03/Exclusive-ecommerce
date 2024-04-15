@@ -9,6 +9,7 @@ import ProductCard from "../Components/Product Card/ProductCard";
 import "./CSS/Search.css";
 import { addToCart } from "../Redux/Reducer/CartReducer";
 import { RiMenu3Fill } from "react-icons/ri";
+import Skeleton from "../Components/Skeleton/Skeleton";
 
 const Search = () => {
   const menuRef = useRef();
@@ -100,7 +101,7 @@ const Search = () => {
         />
 
         {productLoading ? (
-          <h1>loading...</h1>
+          <Skeleton length={15} />
         ) : (
           <div className="search-product-list">
             {searchData?.products.map((i) => (

@@ -1,16 +1,16 @@
 import { BiMaleFemale } from "react-icons/bi";
+import { useSelector } from "react-redux";
 import AdminSidebar from "../../Components/Admin/Admin Side Bar/AdminSideBar";
 import { DoughnutChart } from "../../Components/Admin/Charts/Charts";
 import DashboardTable from "../../Components/Admin/Dashboard Table/DashboardTable";
 import GraphContainer from "../../Components/Admin/Graph/GraphContainer";
 import { WidgetItem } from "../../Components/Admin/Widget Item/WidgetItem";
-import "./CSS/Dashboard.css";
-import { useSelector } from "react-redux";
+import Skeleton from "../../Components/Skeleton/Skeleton";
 import { useStatsQuery } from "../../Redux/api/dashboardAPI";
+import "./CSS/Dashboard.css";
 
 const Dashboard = () => {
   const { user } = useSelector((state) => state.userReducer);
-
 
   const { isLoading, data } = useStatsQuery(user?.id);
   const stats = data?.stats;
@@ -21,7 +21,7 @@ const Dashboard = () => {
 
       <main className="dashboard">
         {isLoading ? (
-          <h1>Loading...</h1>
+          <Skeleton length={20} />
         ) : (
           <>
             <section className="widget-container">

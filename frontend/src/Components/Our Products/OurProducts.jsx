@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useLatestProductsQuery } from "../../Redux/api/productApi";
 import { addToCart } from "../../Redux/Reducer/CartReducer";
 import { Link } from "react-router-dom";
+import Skeleton from "../Skeleton/Skeleton";
 
 const OurProducts = () => {
   const { data, isLoading } = useLatestProductsQuery("");
@@ -24,7 +25,7 @@ const OurProducts = () => {
       <hr />
       <div className="products">
         {isLoading ? (
-          <h1>loading...</h1>
+          <Skeleton length={6} />
         ) : (
           data?.products.map((i) => (
             <ProductCard

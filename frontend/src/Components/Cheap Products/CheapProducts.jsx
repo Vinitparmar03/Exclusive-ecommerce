@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { addToCart } from "../../Redux/Reducer/CartReducer";
 import { Link } from "react-router-dom";
+import Skeleton from "../Skeleton/Skeleton";
 
 const MenFashion = () => {
   const { data, isLoading } = useCheapProductsQuery("");
@@ -24,7 +25,7 @@ const MenFashion = () => {
       <hr />
       <div className="products">
         {isLoading ? (
-          <h1>loading...</h1>
+          <Skeleton />
         ) : (
           data.products.map((i) => (
             <ProductCard
@@ -42,7 +43,9 @@ const MenFashion = () => {
         )}
       </div>
 
-      <Link to="/search" className="btn">View All Products</Link>
+      <Link to="/search" className="btn">
+        View All Products
+      </Link>
     </div>
   );
 };

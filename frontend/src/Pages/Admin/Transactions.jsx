@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAllOrdersQuery } from "../../Redux/api/orderApi";
 import "./CSS/Dashboard.css";
+import Skeleton from "../../Components/Skeleton/Skeleton";
 
 const columns = [
   {
@@ -36,7 +37,6 @@ const columns = [
 
 const Transactions = () => {
   const { user } = useSelector((state) => state.userReducer);
-
 
   const { isLoading, data } = useAllOrdersQuery(user?.id);
 
@@ -77,7 +77,7 @@ const Transactions = () => {
   return (
     <div className="admin-container transaction">
       <AdminSideBar />
-      {isLoading ? <h1>loading...</h1> : Table}
+      {isLoading ? <Skeleton length={20} /> : Table}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import "./CSS/Dashboard.css";
 import "./CSS/Products.css";
 import { useAllProductsQuery } from "../../Redux/api/productApi";
 import { useSelector } from "react-redux";
+import Skeleton from "../../Components/Skeleton/Skeleton";
 
 const columns = [
   {
@@ -106,7 +107,7 @@ const data = [
 
 const Products = () => {
   const { user } = useSelector((state) => state.userReducer);
-  const { data } = useAllProductsQuery(user?._id);
+  const { data, isLoading } = useAllProductsQuery(user?._id);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -131,7 +132,7 @@ const Products = () => {
   return (
     <div className="admin-container product">
       <AdminSideBar />
-      {Table}
+      {isLoading ? <Skeleton length={10} /> : Table}
       <Link to="/admin/products/new" className="create-product-btn">
         <FaPlus />
       </Link>

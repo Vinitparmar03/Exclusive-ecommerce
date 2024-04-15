@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import userDP from "../../assets/userDP.jpg";
 import "./CSS/Dashboard.css";
 import toast from "react-hot-toast";
+import Skeleton from "../../Components/Skeleton/Skeleton";
 
 const columns = [
   {
@@ -44,7 +45,7 @@ const Customers = () => {
   const { user } = useSelector((state) => state.userReducer);
   const [rows, setRows] = useState([]);
 
-  const { data } = useAllUsersQuery(user?.id);
+  const { data, isLoading } = useAllUsersQuery(user?.id);
   const [deleteUser] = useDeleteUserMutation();
 
   const deleteHandler = async (userId) => {
@@ -92,7 +93,7 @@ const Customers = () => {
   return (
     <div className="admin-container customer">
       <AdminSideBar />
-      {Table}
+      {isLoading ? <Skeleton length={20} /> : Table}
     </div>
   );
 };
