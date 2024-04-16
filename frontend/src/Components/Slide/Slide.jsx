@@ -1,6 +1,8 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import image from "../../assets/image.png";
+import image1 from "../../assets/image.png";
+import image2 from "../../assets/horizontal-banner-template-big-sale-with-woman-shopping-bags_23-2148786755.avif";
+import image3 from "../../assets/photocomposition-horizontal-shopping-banner-with-woman-big-smartphone_23-2151201773.avif";
 import "./Slide.css";
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
@@ -44,13 +46,13 @@ const Slide = () => {
         }
       >
         <div>
-          <img src={image} alt="Slide 1" />
+          <img src={image1} alt="Slide 1" />
         </div>
         <div>
-          <img src={image} alt="Slide 2" />
+          <img src={image2} alt="Slide 2" />
         </div>
         <div>
-          <img src={image} alt="Slide 3" />
+          <img src={image3} alt="Slide 3" />
         </div>
       </Carousel>
     </div>
