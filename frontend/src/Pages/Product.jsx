@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Reducer/CartReducer";
 import { toast } from "react-hot-toast";
+import Skeleton from "../Components/Skeleton/Skeleton";
 
 const Product = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const Product = () => {
   return (
     <div>
       {isLoading || relatedProductsLoading ? (
-        <h1>loading...</h1>
+        <Skeleton />
       ) : (
         <>
           <Breadcrum />
