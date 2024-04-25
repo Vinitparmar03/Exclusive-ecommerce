@@ -37,7 +37,7 @@ const Product = () => {
   return (
     <div>
       {isLoading || relatedProductsLoading ? (
-        <Skeleton />
+        <Skeleton length={10} />
       ) : (
         <>
           <Breadcrum />
