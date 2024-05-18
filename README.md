@@ -21,7 +21,6 @@ For any inquiries or support, please contact:
 - Instagram: https://www.instagram.com/vinitprajapat16/
 - Whatsapp: [Contact us on WhatsApp](https://wa.me/9672240149)
 
-
 ## Installation
 
 To download and use Exclusive E-Commerce:
@@ -32,23 +31,21 @@ To download and use Exclusive E-Commerce:
 4. Install dependencies in each folder(frontend & backend): `npm install`
 5. Create a `.env` file in the root directory of each folder(frontend, backend) and specify the required environment variables:
 
+   ```
+   PORT = 5000
+   MONGO_URI = mongodb://localhost:27017/Exclusive
+   STRIPE_KEY = enter your private stripe key
 
+   CLIENT_ID = enter your client ID of the imgur
+   CLIENT_SECRET = enter your client secret of the imgur
+   ```
 
-    ```
-    PORT = 5000
-    MONGO_URI = mongodb://localhost:27017/Exclusive
-    STRIPE_KEY = enter your private stripe key
+   ```
+   VITE_SERVER = http://localhost:5000
+   VITE_STRIPE_KEY = enter your publishable key here
+   ```
 
-    CLIENT_ID = enter your client ID of the imgur
-    CLIENT_SECRET = enter your client secret of the imgur
-    ```
-
-    ```
-    VITE_SERVER = https://exclusive-ecommerce-mo9h.onrender.com
-    VITE_STRIPE_KEY = enter your publishable key here
-    ```
-
-5. Start the development server: `npm start`
+6. Start the development server: `npm start`
 
 ## Obtaining Stripe API Keys
 
@@ -67,7 +64,6 @@ To obtain your Imgur API credentials:
 3. Register a new application to obtain your Client ID and Client Secret.
 4. Copy your Client ID and Client Secret and paste them into your `.env` file.
 
-
 ## Usage
 
 - Access the website at `http://localhost:5173/`.
@@ -75,5 +71,5 @@ To obtain your Imgur API credentials:
 - Monitor user activity, transactions, and orders through the admin dashboard.
 
 ## Authors
-- [@VinitParmar](https://www.github.com/vinitparmar03)
 
+- [@VinitParmar](https://www.github.com/vinitparmar03)
