@@ -25,7 +25,7 @@ For any inquiries or support, please contact:
 
 To download and use Exclusive E-Commerce:
 
-1. Clone the repository: `git clone https://github.com/yourusername/exclusive.git`
+1. Clone the repository: `git clone https://github.com/Vinitparmar03/Exclusive-ecommerce.git`
 2. Navigate to the project directory of frontend: `cd frontend `
 3. Navigate to the project directory of backend: `cd backend `
 4. Install dependencies in each folder(frontend & backend): `npm install`
